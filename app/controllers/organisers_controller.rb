@@ -1,0 +1,42 @@
+class OrganisersController < ApplicationController
+  before_action :set_organiser, only: [:show, :edit, :update, :destroy]
+  def index
+    @organisers = Organiser.all
+  end
+
+  def show
+  end
+
+  def new
+    @organiser = Organiser.new
+  end
+
+  def create
+    @organiser = Organiser.new(organiser_params)
+    if @organiser.save
+      redirect_to organiser_path(@organiser)
+    else
+      render :new, status: :unprocesable_entity
+    end
+  end
+
+  def update
+    @organiser.update(organiser_params)
+    redirect_to organiser_path(@organiser)
+  end
+
+  def destroy
+    @organiser.destroy
+    redirect_to organisers_path, status: :see_other
+  end
+
+  private
+
+  def organiser_params
+    params.require(:organiser).permit(:name, :url, :facebook, :instagram, :soundcloud)
+  end
+
+  def set_organiser
+    @organiser = Organiser.find(params[:id])
+  end
+end

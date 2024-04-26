@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :organisers
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -8,4 +9,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "application#home"
+
+  resources :organisers, only: [:index, :create, :show, :update, :destroy]
+
 end
