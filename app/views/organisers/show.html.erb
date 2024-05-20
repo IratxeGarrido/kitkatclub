@@ -1,12 +1,16 @@
-<h1><%= @organiser.name %></h1>
-<p><%= @organiser.url %></p>
-<p><%= @organiser.instagram %></p>
-<p><%= @organiser.facebook %></p>
-<p><%= @organiser.soundcloud %></p>
-<%= link_to "Edit",
+<div class="border-2">
+  <h1 class="text-2xl font-bold text-blue-600"><%= @organiser.name %></h1>
+  <p class="mb-4 bg-[#bada55]"><%= @organiser.url %></p>
+  <p class="text-xl"><%= @organiser.instagram %></p>
+  <p><%= @organiser.facebook %></p>
+  <p><%= @organiser.soundcloud %></p>
+</div>
+<% if user_signed_in? %>
+  <%= link_to "Edit",
     edit_organiser_path(@organiser)
-%>
-<%= link_to "Delete",
-    organiser_path(@organiser),
-    data: {turbo_method: :delete, turbo_comfirm: "Are you sure?"}
-%>
+  %>
+  <%= link_to "Delete",
+      organiser_path(@organiser),
+      data: {turbo_method: :delete, turbo_comfirm: "Are you sure?"}
+  %>
+<% end %>

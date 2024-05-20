@@ -1,0 +1,18 @@
+<div class="border-2">
+  <h1 class="text-2xl font-bold text-blue-600"><%= @event.title %></h1>
+  <p class="mb-4 bg-[#bada55]"><%= @event.location %></p>
+  <p class="text-xl"><%= @event.date %></p>
+  <p><%= @event.line_up %></p>
+  <p><%= @event.style %></p>
+  <p><%= @event.special %></p>
+  <p><%= @event.dresscode %></p>
+</div>
+<% if user_signed_in? %>
+  <%= link_to "Edit",
+      edit_organiser_event_path(@event.organiser, @event)
+  %>
+  <%= link_to "Delete",
+      organiser_event_path(@event),
+      data: {turbo_method: :delete, turbo_comfirm: "Are you sure?"}
+  %>
+<% end %>
