@@ -1,0 +1,10 @@
+<%= simple_form_for([@event.organiser, @event]) do |f| %>
+<%= f.input :title %>
+<%= f.input :location %>
+<%= f.input :date %>
+<%= f.input :line_up %>
+<%= f.input :style %>
+<%= f.input :special %>
+<%= f.input :dresscode %>
+<%= f.button :submit %>
+<% end %>

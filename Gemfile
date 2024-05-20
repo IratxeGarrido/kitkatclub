@@ -76,3 +76,5 @@ gem "devise", "~> 4.9"
 gem "font-awesome-sass", "~> 6.5.1"
 
 gem "simple_form", "~> 5.3"
+
+gem "faker", "~> 3.3"

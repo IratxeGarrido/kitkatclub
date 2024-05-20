@@ -1,3 +1,5 @@
-<% @organisers.each do |organiser| %>
-  <p><%= link_to organiser.name, organiser_path(organiser) %></p>
-<% end %>
+<div>
+  <% @organisers.each do |organiser| %>
+    <p><%= link_to organiser.name, organiser_path(organiser) %></p>
+  <% end %>
+</div>
