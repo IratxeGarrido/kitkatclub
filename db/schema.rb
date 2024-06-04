@@ -17,7 +17,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_083831) do
   create_table "events", force: :cascade do |t|
     t.text "title"
     t.text "location"
-    t.date "date"
+    t.date "start_time"
+    t.text "recurring"
     t.text "line_up"
     t.text "style"
     t.text "special"
