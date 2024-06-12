@@ -1,11 +1,8 @@
 class OrganisersController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_organiser, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_organiser, only: %i[show edit update destroy]
   def index
     @organisers = Organiser.all
-  end
-
-  def show
   end
 
   def new
