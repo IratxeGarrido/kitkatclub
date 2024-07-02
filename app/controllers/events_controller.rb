@@ -14,7 +14,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @organiser = Organiser.find(params[:organiser_id])
     if @event.save
-      redirect_to oraganiser_path(@organiser)
+      redirect_to oraganiser_path(@organiser), notice: 'Event was successfully created.'
     else
       render :new, status: :unprocesable_entity
     end
@@ -23,7 +23,7 @@ class EventsController < ApplicationController
   def update
     @organiser_id = @event.organiser
     @event.update(event_params)
-    redirect_to organiser_events_path(@organiser_id)
+    redirect_to organiser_events_path(@organiser_id), notice: 'Event was successfully created.'
   end
 
   def destroy
@@ -35,7 +35,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :location, :date, :line_up, :style, :special, :dresscode)
+    params.require(:event).permit(:title, :location, :start_date, :end_date, :recurring, :line_up, :style, :special, :dresscode)
   end
 
   def set_event

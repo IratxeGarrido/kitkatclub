@@ -1,7 +1,9 @@
 <%= simple_form_for([@event.organiser, @event]) do |f| %>
 <%= f.input :title %>
 <%= f.input :location %>
-<%= f.input :start_time %>
+<%= f.input :start_time, as: :datetime %>
+<%= f.input :end_time, as: :datetime %>
+<%= f.input :recurring, as: :text, placeholder: '{"validations:" {"day":[1]}, "rule_type": "IceCube::WeeklyRule", "interval": 1}' %>
 <%= f.input :line_up %>
 <%= f.input :style %>
 <%= f.input :special %>

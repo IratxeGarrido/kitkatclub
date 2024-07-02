@@ -3,6 +3,7 @@ require 'faker'
 puts 'Destroying all seeds...'
 Event.destroy_all
 Organiser.destroy_all
+User.destroy_all
 puts 'Seeds destroyed'
 
 puts 'Creating Organisers...'
@@ -21,6 +22,7 @@ puts 'Creating Events...'
     title: "Event #{i}",
     location: 'Basement',
     start_time: Faker::Date.in_date_period,
+    end_time: Faker::Date.in_date_period,
     line_up: 'Cool line up',
     style: "Style #{i}",
     special: 'music',
@@ -29,3 +31,8 @@ puts 'Creating Events...'
   )
 end
 puts "#{Event.count} events created!"
+
+User.create!(
+  email: "iratxe@example.com",
+  password: "123456"
+)
