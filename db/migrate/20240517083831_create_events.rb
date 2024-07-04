@@ -3,8 +3,7 @@ class CreateEvents < ActiveRecord::Migration[7.1]
     create_table :events do |t|
       t.text :title
       t.text :location
-      t.date :start_time
-      t.text :recurring
+      t.text :recurrence
       t.text :line_up
       t.text :style
       t.text :special

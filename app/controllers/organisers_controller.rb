@@ -14,7 +14,7 @@ class OrganisersController < ApplicationController
     if @organiser.save
       redirect_to organiser_path(@organiser)
     else
-      render :new, status: :unprocesable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 

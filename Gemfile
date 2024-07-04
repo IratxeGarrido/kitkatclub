@@ -79,7 +79,5 @@ gem "simple_form", "~> 5.3"
 
 gem "faker", "~> 3.3"
 
-# gem 'simple_calendar'
-# gem 'recurring_select', github: "RundownApp/recurring_select"
-
-gem "ice_cube", "~> 0.16.4"
+# Scheduled events
+gem 'montrose'

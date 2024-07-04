@@ -12,11 +12,14 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @organiser = Organiser.find(params[:organiser_id])
-    if @event.save
-      redirect_to oraganiser_path(@organiser), notice: 'Event was successfully created.'
+    @event.organiser = Organiser.find(params[:organiser_id])
+    # @event.recurrence = { every: params["event"]["recurrence"].to_sym, :day=>[2, 4], :interval=>2, :total=>8, :on=>[:tuesday, :thursday] }
+    # @event.recurrence = { every: params["event"]["recurrence"] }
+    raise
+    if @event.save!
+      redirect_to [@organiser, @event], notice: 'Event was successfully created.'
     else
-      render :new, status: :unprocesable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -35,7 +38,15 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :location, :start_date, :end_date, :recurring, :line_up, :style, :special, :dresscode)
+    params.require(:event).permit(
+      :title,
+      :location,
+      :line_up,
+      :style,
+      :special,
+      :dresscode,
+      recurrence: [:every, :interval, :total, :on, :at, :starts, :until]
+    )
   end
 
   def set_event

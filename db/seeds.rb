@@ -1,4 +1,4 @@
-require 'faker'
+# require 'faker'
 
 puts 'Destroying all seeds...'
 Event.destroy_all
@@ -21,8 +21,7 @@ puts 'Creating Events...'
   Event.create!(
     title: "Event #{i}",
     location: 'Basement',
-    start_time: Faker::Date.in_date_period,
-    end_time: Faker::Date.in_date_period,
+    recurrence: Montrose.daily(total: 10),
     line_up: 'Cool line up',
     style: "Style #{i}",
     special: 'music',
