@@ -11,10 +11,9 @@ class EventsController < ApplicationController
   end
 
   def create
+    on = params[:event][:recurrence][:on].shift.to_sym
     @event = Event.new(event_params)
     @event.organiser = Organiser.find(params[:organiser_id])
-    # @event.recurrence = { every: params["event"]["recurrence"].to_sym, :day=>[2, 4], :interval=>2, :total=>8, :on=>[:tuesday, :thursday] }
-    # @event.recurrence = { every: params["event"]["recurrence"] }
     raise
     if @event.save!
       redirect_to [@organiser, @event], notice: 'Event was successfully created.'

@@ -4,9 +4,8 @@
   <p class="text-xl"><%= @event.recurrence.to_hash %></p>
   <h2>Occurrences:</h2>
   <ul>
-    <% @event.recurrence.to_hash.each do |occurrence| %>
-      <li><%= occurrence %></li>
-    <% end %>
+    <li>Every: <%= @event.recurrence.to_hash[:every] %> </li>
+    <li>Every: <%= @event.recurrence.to_hash[:every] %> </li>
   </ul>
   <p><%= @event.line_up %></p>
   <p><%= @event.style %></p>

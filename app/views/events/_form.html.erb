@@ -4,7 +4,8 @@
   <%= f.simple_fields_for :recurrence do |ff| %>
     <%= ff.input :every, collection: ['day', 'week', 'month', 'year'], as: :select %>
     <%= ff.input :interval, as: :integer %>
-    <%= ff.input :total, as: :integer %>
+    <%# <%= ff.input :total, as: :integer %>
+    <%# <%= ff.collection_check_boxes :on, [[:monday, 'Monday'], [:tuesday, 'Tuesday']], :first, :last %>
     <%= ff.input :on, collection: Date::DAYNAMES, as: :check_boxes %>
     <%= ff.input :at, as: :time, html5: true %>
     <%= ff.input :starts, as: :date, html5: true %>
