@@ -14,7 +14,6 @@ class EventsController < ApplicationController
     on = params[:event][:recurrence][:on].shift.to_sym
     @event = Event.new(event_params)
     @event.organiser = Organiser.find(params[:organiser_id])
-    raise
     if @event.save!
       redirect_to [@organiser, @event], notice: 'Event was successfully created.'
     else
@@ -44,7 +43,7 @@ class EventsController < ApplicationController
       :style,
       :special,
       :dresscode,
-      recurrence: [:every, :interval, :total, :on, :at, :starts, :until]
+      recurrence: [:every, :interval, :total, :at, :starts, :until, on: []]
     )
   end
 

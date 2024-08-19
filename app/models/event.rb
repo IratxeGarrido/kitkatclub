@@ -5,14 +5,5 @@ class Event < ApplicationRecord
   validates :special, presence: true
   validates :dresscode, presence: true
   validates :recurrence, presence: true
-
   serialize :recurrence, coder: Montrose::Recurrence
-
-  # def recurrence=(value)
-  #   super(value)
-  # end
-
-  # def ocurrences
-  #   recurrence&.events
-  # end
 end
